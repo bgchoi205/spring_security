@@ -1,6 +1,7 @@
 package com.exam.security.domain.entity;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -35,4 +36,13 @@ public class MemberEntity {
     @Column(name="email")
     private String email;
 
+    @Builder
+    public MemberEntity(Long id, String loginId, String loginPw, String name, String email){
+
+        this.id = id;
+        this.loginId = loginId;
+        this.loginPw = loginPw;
+        this.name = name;
+        this.email = email;
+    }
 }

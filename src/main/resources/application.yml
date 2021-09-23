@@ -2,8 +2,34 @@
 server:
   port: 8082
 
+# spring 설정
 spring:
-  security:
-    user:
-      name: user
-      password: 123
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/secu_db?serverTimezone=UTC&characterEncoding=UTF-8
+    username: secu
+    password: secu123
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      format_sql: true
+      ddl-auto: create
+
+#  security:
+#    user:
+#      name: user
+#      password: 123
+
+# SQL bind parameter(물음표로 표기되는 부분)를 로그로 출력해서 확인하도록 설정
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
