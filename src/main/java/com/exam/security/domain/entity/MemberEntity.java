@@ -37,9 +37,8 @@ public class MemberEntity {
     private String email;
 
     @Builder
-    public MemberEntity(Long id, String loginId, String loginPw, String name, String email){
+    public MemberEntity(String loginId, String loginPw, String name, String email){
 
-        this.id = id;
         this.loginId = loginId;
         this.loginPw = loginPw;
         this.name = name;

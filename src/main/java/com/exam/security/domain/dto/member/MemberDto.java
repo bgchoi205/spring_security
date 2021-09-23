@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class MemberDto {
 
-    private Long id;
     private LocalDateTime regDate;
     private LocalDateTime updateDate;
     private String loginId;
@@ -22,9 +21,8 @@ public class MemberDto {
     private String email;
 
     @Builder
-    public MemberDto(Long id, String loginId, String loginPw, String name, String email){
+    public MemberDto(String loginId, String loginPw, String name, String email){
 
-        this.id = id;
         this.loginId = loginId;
         this.loginPw = loginPw;
         this.name = name;
@@ -33,7 +31,6 @@ public class MemberDto {
 
     public MemberEntity toEntity(){
         return MemberEntity.builder()
-                .id(id)
                 .loginId(loginId)
                 .loginPw(loginPw)
                 .name(name)

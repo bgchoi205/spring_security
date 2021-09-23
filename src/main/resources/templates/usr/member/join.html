@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 테일윈드 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.14/tailwind.min.css">
+
+    <title>Join</title>
+</head>
+<body>
+<div class="joinBody w-full min-h-screen">
+    <div class="container mx-auto flex">
+        <div class="joinFormBox mx-auto border flex-shrink-0 w-80">
+            <form action="/member/join" method="post">
+                <div class="my-2">
+                    <input type="text" name="loginId" placeholder="아이디를 입력해주세요." class="border">
+                </div>
+                <div class="my-2">
+                    <input type="password" name="loginPw" placeholder="비밀번호를 입력해주세요." class="border">
+                </div>
+                <div class="my-2">
+                    <input type="text" name="name" placeholder="이름을 입력해주세요." class="border">
+                </div>
+                <div class="my-2">
+                    <input type="text" name="email" placeholder="이메일을 입력해주세요." class="border">
+                </div>
+                <div class="my-2">
+                    <button type="submit" class="p-2 bg-blue-700 text-white">
+                        <span>가입하기</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
