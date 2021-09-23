@@ -18,11 +18,11 @@ public class MemberEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="reg_date")
-    private LocalDateTime regDate;
-
-    @Column(name="update_date")
-    private LocalDateTime updateDate;
+//    @Column(name="reg_date")
+//    private LocalDateTime regDate;
+//
+//    @Column(name="update_date")
+//    private LocalDateTime updateDate;
 
     @Column(name="login_id")
     private String loginId;
