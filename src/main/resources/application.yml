@@ -18,10 +18,10 @@ spring:
       format_sql: true
       ddl-auto: create
 
-  security:
-    user:
-      name: user
-      password: 123
+#  security:
+#    user:
+#      name: user
+#      password: 123
 
 # SQL bind parameter(물음표로 표기되는 부분)를 로그로 출력해서 확인하도록 설정
 logging:
@@ -33,3 +33,4 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+

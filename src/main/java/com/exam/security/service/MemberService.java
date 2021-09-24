@@ -29,18 +29,18 @@ public class MemberService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<MemberEntity> userEntityWrapper = memberRepository.findByLoginId(username);
+    public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
+        Optional<MemberEntity> userEntityWrapper = memberRepository.findByLoginId(loginId);
         MemberEntity userEntity = userEntityWrapper.get();
 
         List<GrantedAuthority> authorities = new ArrayList<>();
 
-        if (("admin").equals(username)) {
+        if (("admin").equals(loginId)) {
             authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
         } else {
             authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
         }
 
-        return new User(userEntity.getEmail(), userEntity.getLoginPw(), authorities);
+        return new User(userEntity.getLoginId(), userEntity.getLoginPw(), authorities);
     }
 }

@@ -13,6 +13,11 @@ public class UsrMemberController {
 
     private final MemberService memberService;
 
+    @GetMapping("/member/login")
+    public String login(){
+        return "/usr/member/login";
+    }
+
     @GetMapping("/member/join")
     public String join(){
         return "/usr/member/join";
