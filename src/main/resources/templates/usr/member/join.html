@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Join</title>
 </head>
 <body>
 <div>
-    <form action="/member/join" method="post">
+    <form th:action="@{/member/join}" method="post">
         <div>
             <input type="text" name="loginId" placeholder="아이디를 입력해주세요.">
         </div>

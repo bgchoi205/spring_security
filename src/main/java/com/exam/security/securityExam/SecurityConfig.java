@@ -29,14 +29,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
-                .csrf().disable()  // csrf 토큰검사 비활성화
                 .authorizeRequests()
+                    .mvcMatchers(
+                            "/member/login"
+                                    , "/member/join").anonymous()  // 인증하지 않은 사용자만 접근 가능
+                    .mvcMatchers(
+                            "/").permitAll()  // 누구나 접근 가능
                     .mvcMatchers(
                             "/admin/**").hasRole("ADMIN")  // ADMIN 권한을 가진 계정만 접근 가능
                     .mvcMatchers(
                             "/member/mypage").hasRole("MEMBER")  // MEMBER 권한을 가진 계정만 접근 가능
-                    .mvcMatchers(
-                            "/**").permitAll()  // 누구나 접근 가능
+
                     .anyRequest()  //  antMatchers로 지정한 페이지 이외의 다른모든 페이지
                     .authenticated() // 인증이 된 사용자만 접근할 수 있도록 제한
                 .and()// 로그인 설정 시작
